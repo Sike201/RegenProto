@@ -1,0 +1,362 @@
+/* Terminal-Style Financial Portfolio */
+
+.terminal-container {
+  width: 100%;
+  height: auto;
+  min-height: auto;
+  background: #000000;
+  color: #ffffff;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  overflow: hidden;
+  border: 1px solid #333333;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Terminal Header */
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #1a1a1a;
+  border-bottom: 1px solid #333333;
+  font-size: 11px;
+}
+
+.terminal-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+}
+
+.terminal-prompt {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.terminal-path {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.terminal-time {
+  color: #666666;
+  font-size: 10px;
+}
+
+.terminal-controls {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.terminal-btn {
+  background: transparent;
+  border: 1px solid #333333;
+  color: #ffffff;
+  padding: 4px 6px;
+  cursor: pointer;
+  border-radius: 2px;
+  font-size: 10px;
+  transition: all 0.2s;
+}
+
+.terminal-btn:hover:not(:disabled) {
+  background: #333333;
+  border-color: #ffffff;
+}
+
+.terminal-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Currency Selector */
+.currency-selector {
+  position: relative;
+}
+
+.currency-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 50px;
+  justify-content: center;
+}
+
+.currency-symbol-btn {
+  font-size: 12px;
+  font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  min-width: 12px;
+  display: inline-block;
+}
+
+.currency-code {
+  font-size: 9px;
+  font-weight: bold;
+}
+
+.currency-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #1a1a1a;
+  border: 1px solid #333333;
+  border-radius: 2px;
+  min-width: 120px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  margin-top: 2px;
+}
+
+.currency-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 6px 8px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 10px;
+  cursor: pointer;
+  transition: background-color 0.1s;
+  border-bottom: 1px solid #333333;
+}
+
+.currency-option:last-child {
+  border-bottom: none;
+}
+
+.currency-option:hover {
+  background: #333333;
+}
+
+.currency-option.selected {
+  background: #0d0d0d;
+  color: #ffffff;
+}
+
+.currency-symbol {
+  font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  min-width: 20px;
+  display: inline-block;
+}
+
+.currency-name {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+}
+
+/* Portfolio Summary */
+.terminal-summary {
+  padding: 12px;
+  border-bottom: 1px solid #333333;
+  background: #0d0d0d;
+}
+
+.terminal-summary.setup-required {
+  background: #2d1a00;
+  border-bottom: 1px solid #664400;
+}
+
+.summary-line.warning {
+  color: #ffaa00;
+}
+
+.summary-line.warning .label {
+  color: #ffaa00;
+}
+
+.summary-line.warning .value {
+  color: #ffaa00;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 0;
+  font-size: 12px;
+}
+
+.summary-line.total {
+  padding: 4px 0;
+  border-top: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  margin: 4px 0;
+}
+
+.label {
+  color: #666666;
+  font-weight: normal;
+  min-width: 120px;
+}
+
+.value {
+  color: #ffffff;
+  text-align: right;
+}
+
+.value.highlight {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.mono {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+}
+
+/* Terminal Table */
+.terminal-table {
+  flex: 1;
+  overflow: hidden;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 12px;
+  padding: 8px 12px;
+  background: #1a1a1a;
+  border-bottom: 1px solid #333333;
+  font-size: 11px;
+  font-weight: bold;
+  color: #666666;
+  text-transform: uppercase;
+}
+
+.table-body {
+  max-height: none;
+  overflow-y: visible;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 12px;
+  padding: 6px 12px;
+  border-bottom: 1px solid #333333;
+  transition: background-color 0.1s;
+  font-size: 12px;
+}
+
+.table-row:hover {
+  background: #1a1a1a;
+}
+
+.table-row:nth-child(even) {
+  background: #0d0d0d;
+}
+
+.table-row:nth-child(even):hover {
+  background: #1a1a1a;
+}
+
+.col-symbol,
+.col-amount,
+.col-price,
+.col-value {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.col-symbol {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.col-amount,
+.col-price,
+.col-value {
+  color: #cccccc;
+  text-align: right;
+  justify-content: flex-end;
+}
+
+.col-value {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Custom Scrollbar */
+.table-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.table-body::-webkit-scrollbar-track {
+  background: #111;
+}
+
+.table-body::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+
+.table-body::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+
+/* Status Bar */
+.terminal-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 12px;
+  background: #1a1a1a;
+  border-top: 1px solid #333333;
+  font-size: 10px;
+  color: #666666;
+  margin-top: auto;
+}
+
+.status-item {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+  .terminal-container {
+    font-size: 11px;
+  }
+  
+  .table-header,
+  .table-row {
+    grid-template-columns: 1fr 0.8fr 0.8fr 1fr;
+    gap: 8px;
+    padding: 6px 8px;
+  }
+  
+  .terminal-summary {
+    padding: 8px;
+  }
+  
+  .summary-line {
+    font-size: 11px;
+  }
+  
+  .value.highlight {
+    font-size: 13px;
+  }
+}
+

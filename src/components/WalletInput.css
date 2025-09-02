@@ -1,0 +1,304 @@
+/* Terminal-Style Wallet Input */
+
+.terminal-wallet-container {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  background: #000000;
+  color: #ffffff;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #333333;
+}
+
+/* Terminal Header */
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #1a1a1a;
+  border-bottom: 1px solid #333333;
+  font-size: 11px;
+}
+
+.terminal-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+}
+
+.terminal-prompt {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.terminal-path {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.terminal-time {
+  color: #666666;
+  font-size: 10px;
+}
+
+.terminal-window-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.window-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid #333333;
+}
+
+.window-btn.close {
+  background: #666666;
+}
+
+.window-btn.minimize {
+  background: #666666;
+}
+
+.window-btn.maximize {
+  background: #666666;
+}
+
+/* Terminal Body */
+.terminal-body {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.terminal-output {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.output-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.prompt {
+  color: #ffffff;
+  font-weight: bold;
+  min-width: 12px;
+}
+
+.command {
+  color: #ffffff;
+}
+
+.system {
+  color: #666666;
+}
+
+.success {
+  color: #cccccc;
+}
+
+/* Terminal Form */
+.terminal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.input-prompt {
+  color: #666666;
+  min-width: 140px;
+  font-weight: bold;
+}
+
+.terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+  padding: 4px 0;
+  border-bottom: 1px solid #333333;
+  transition: border-color 0.2s;
+}
+
+.terminal-input:focus {
+  border-bottom-color: #ffffff;
+}
+
+.terminal-input.error {
+  border-bottom-color: #ff4444;
+  color: #ff4444;
+}
+
+.terminal-input::placeholder {
+  color: #666666;
+}
+
+.terminal-input:disabled {
+  opacity: 0.5;
+}
+
+/* Error Display */
+.error-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #ff4444;
+}
+
+.error-prompt {
+  color: #ff4444;
+  font-weight: bold;
+  min-width: 12px;
+}
+
+.error-text {
+  color: #ff4444;
+}
+
+/* Action Line */
+.action-line {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 8px;
+}
+
+.terminal-button {
+  background: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.terminal-button:hover:not(:disabled) {
+  background: #ffffff;
+  color: #000000;
+}
+
+.terminal-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #666666;
+  color: #666666;
+}
+
+
+
+/* Terminal Help */
+.terminal-help {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #333;
+}
+
+.help-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.help-label {
+  color: #666666;
+  min-width: 80px;
+}
+
+.example-wallet {
+  background: transparent;
+  border: none;
+  color: #666666;
+  font-family: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  padding: 2px 4px;
+  transition: color 0.2s;
+}
+
+.example-wallet:hover:not(:disabled) {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.example-wallet:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Status Bar */
+.terminal-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 12px;
+  background: #1a1a1a;
+  border-top: 1px solid #333333;
+  font-size: 10px;
+  color: #666666;
+  margin-top: auto;
+}
+
+.status-item {
+  font-family: inherit;
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+  .terminal-body {
+    padding: 12px;
+  }
+  
+  .input-line {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .input-prompt {
+    min-width: auto;
+  }
+  
+  .terminal-input {
+    width: 100%;
+  }
+  
+  .help-line {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .help-label {
+    min-width: auto;
+  }
+}
+
