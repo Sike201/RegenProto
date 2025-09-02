@@ -2,7 +2,7 @@
 
 A sleek, terminal-styled Solana portfolio tracker that lives in your system's menu bar. Built with React, Vite, and Electron for a native desktop experience.
 
-![RegenPortfolio Screenshot](RegenLogo.jpg)
+![RegenPortfolio Screenshot](RegenPortfolioScreenshot.png)
 
 ## ✨ Features
 
@@ -28,13 +28,48 @@ A sleek, terminal-styled Solana portfolio tracker that lives in your system's me
 
 ## 🚀 Getting Started
 
-### Prerequisites
-- Node.js (v18 or higher)
-- npm or yarn
-- Helius API key (free at [helius.xyz](https://helius.xyz))
-- Moralis API key (free at [moralis.io](https://moralis.io))
+### 📦 Current Build Status
+- **✅ macOS**: `.dmg` installer available
+- **🔄 Windows**: `.exe` installer (builds available)
+- **🔄 Linux**: `.AppImage` installer (builds available)
 
-### Installation
+> **Note**: Currently, only the macOS build has been tested and released. Windows and Linux builds are configured and will be available in future releases.
+
+### Prerequisites
+- **macOS**: macOS 10.14 or later
+- **Windows**: Windows 10 or later
+- **Linux**: Ubuntu 18.04+, Fedora 28+, or similar
+- **API Keys**: 
+  - Helius API key (free at [helius.xyz](https://helius.xyz))
+  - Moralis API key (free at [moralis.io](https://moralis.io))
+
+### System Requirements
+- **Minimum RAM**: 512MB
+- **Storage**: 100MB free space
+- **Network**: Internet connection for API calls
+- **Display**: 1024x768 minimum resolution
+
+### Download & Install
+
+#### Option 1: Download Pre-built App (Recommended)
+Download the latest release for your platform:
+
+- **macOS**: Download `RegenPortfolio-1.0.0.dmg` ✅ **Available Now**
+- **Windows**: Download `RegenPortfolio-1.0.0.exe` 🔄 **Coming Soon**
+- **Linux**: Download `RegenPortfolio-1.0.0.AppImage` 🔄 **Coming Soon**
+
+> **Current Status**: Only macOS builds are currently available. Windows and Linux builds will be released in future updates.
+
+1. **Download** the appropriate file for your operating system
+2. **Install**:
+   - **macOS**: Open `.dmg` file and drag to Applications folder
+   - **Windows**: Run `.exe` installer and follow prompts *(Coming Soon)*
+   - **Linux**: Make `.AppImage` executable (`chmod +x`) and run *(Coming Soon)*
+3. **Launch** the app from your Applications/Start Menu
+4. **Configure** API keys and add wallet addresses (see First Time Setup below)
+
+#### Option 2: Build from Source
+For developers or if you want the latest features:
 
 1. **Clone the repository**:
    ```bash
@@ -53,29 +88,32 @@ A sleek, terminal-styled Solana portfolio tracker that lives in your system's me
 
 ### Running the App
 
-#### Development Mode
+#### Development Mode (Build from Source)
 ```bash
 npm run dev
 ```
 This starts the Vite dev server for web development.
 
-#### Electron Development Mode
+#### Electron Development Mode (Build from Source)
 ```bash
 npm run electron-dev
 ```
 This starts both the Vite dev server and Electron app.
 
-#### Production Build
+#### Production Build (Build from Source)
 ```bash
 npm run build
 npm run electron-pack
 ```
 
-#### Distribution Build
+#### Distribution Build (Build from Source)
 ```bash
 npm run dist
 ```
-Creates platform-specific installers in the `dist` folder.
+Creates platform-specific installers in the `dist` folder:
+- **macOS**: `RegenPortfolio-1.0.0.dmg`
+- **Windows**: `RegenPortfolio-1.0.0.exe` 
+- **Linux**: `RegenPortfolio-1.0.0.AppImage`
 
 ## 📱 First Time Setup
 
@@ -94,12 +132,19 @@ Creates platform-specific installers in the `dist` folder.
 
 ## 🎮 Usage
 
-### Menu Bar
+### Platform Support
+- **macOS**: Full menu bar integration with native macOS tray
+- **Windows**: System tray integration with Windows notification support
+- **Linux**: AppIndicator support for various desktop environments
+
+### Menu Bar / System Tray
 - **Click the tray icon** to open/close the portfolio window
 - **Right-click the tray icon** for context menu (Refresh, Settings, Quit)
 - **Tooltip** shows current total portfolio value
-
-### Portfolio Window
+- **Platform-specific features**:
+  - **macOS**: Native menu bar with dark mode support
+  - **Windows**: System tray with Windows 10/11 styling
+  - **Linux**: AppIndicator compatible with GNOME, KDE, etc.
 - **Eye icon**: Toggle balance visibility (privacy mode)
 - **Refresh icon**: Manual refresh of portfolio data
 - **Settings icon**: Open settings panel
@@ -172,9 +217,32 @@ This app uses two APIs for comprehensive Solana blockchain data:
 - **Responsive design** for various screen sizes
 - **Cross-platform compatibility** (macOS, Windows, Linux)
 
-## 📄 License
+### Building for Different Platforms
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+#### macOS Build
+```bash
+npm run dist
+# Output: dist/RegenPortfolio-1.0.0.dmg
+```
+
+#### Windows Build (requires Windows or WSL)
+```bash
+npm run dist
+# Output: dist/RegenPortfolio-1.0.0.exe
+```
+
+#### Linux Build
+```bash
+npm run dist
+# Output: dist/RegenPortfolio-1.0.0.AppImage
+```
+
+#### All Platforms (requires cross-compilation setup)
+```bash
+# Build for all platforms at once
+npm run dist
+# Outputs: .dmg, .exe, and .AppImage files
+```
 
 ## 🤝 Contributing
 
@@ -201,3 +269,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 **Made with ❤️ for the Solana ecosystem**
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
