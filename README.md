@@ -1,6 +1,8 @@
 # 🌱 RegenPortfolio
 
-A sleek, terminal-styled Solana portfolio tracker that lives in your system's menu bar. Built with React, Vite, and Electron for a native desktop experience.
+A sleek, terminal-styled Solana portfolio tracker that lives in your system's menu bar. Built with React, Vite, and Electron for a native desktop experience. Making each user feel more like a $REGEN.
+
+CA: 
 
 ![RegenPortfolio Screenshot](RegenPortfolioScreenshot.png)
 
